@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+
+    <main id="signUpPage" class="login-form d-none">
+        <div class="container">
+            <div class="inner form-box">
+                <h1>Smart Login System</h1>
+                <input id="nameSignUp" class="form-control" type="text" placeholder="Enter your Name">
+                <p class="text-danger text-center d-none"></p>
+                <input id="emailSignUp" class="form-control" type="email" placeholder="Enter your Email">
+                <p id="signUpEmailInvalid" class="text-danger text-center d-none">Try other email </p>
+                <input id="passwordSignUp" class="form-control" type="password" placeholder="Enter Password">
+                <p class="text-danger text-center d-none"></p>
+                <button id="btnSignUp" class="btn btn-outline-primary w-100">Sign Up</button>
+            </div>
+        </div>
+    </main>
+    
+    <main id="logInPage" class="login-form d-block">
+            <div class="inner form-box">
+                <h1>Smart Login System</h1>
+                <input id="emailLogIn" name="emailLogIn" class="form-control" type="email" placeholder="Enter User Email">
+                <p id="logInNameInvalid" class="text-danger text-center m-0 d-none">User name incorrct</p>
+                <input id="passwordLognIn" name="passwordLognIn" class="form-control" type="password" placeholder="Password">
+                <p id="logInPasswordInvalid" class="text-danger text-center m-0 d-none">Password incorrct</p>
+                <button id="btnLogIn" class="btn btn-outline-primary w-100">Login</button>
+                <p class="text-white">Don’t have an account? <a id="btnSwtchToSignUpPage" 
+                        class="link-light link-underline-opacity-25">Sign Up</a></p>
+            </div>
+        </div>
+    </main>
+
+<div id="WelcomPage" class="d-none">
+        <nav class="navbar shadow-lg welcome-nav">
+            <div class="container-fluid justify-content-between">
+              <span class="navbar-brand mb-0 h1 ms-5 text-white">SMART LOGIN</span>
+              <button id="btnLogOut" class="me-5 btn btn-logout">Logout</button>
+            </div>
+          </nav>
+        <main class="login-form welcome">
+            <div class="container d-flex justify-content-center align-content-center flex-nowrap">
+                <div class="inner form-box">
+                    <h1>Welcome <span id="welcomeUserName">Mahmoud</span></h1>
+                </div>
+            </div>
+        </main>
+</div>
+    
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
