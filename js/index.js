@@ -1,3 +1,5 @@
+"use strict"
+
 const inputNameSignUp = document.querySelector("#nameSignUp");
 const inputEmailSignUp = document.querySelector("#emailSignUp");
 const inputPasswordSignUp = document.querySelector("#passwordSignUp");
@@ -18,7 +20,7 @@ const btnLogOut = document.querySelector("#btnLogOut");
 const users = JSON.parse(localStorage.getItem("usersM")) || []
 const usersNamesList = []; //used to Authenticat user email when signup
 
-{//functions to hide and show elments in html by changein display
+//functions to hide and show elments in html by changein display
     function showElmentById(id) {
         document.getElementById(id).classList.add("d-block");
         document.getElementById(id).classList.remove("d-none");
@@ -27,9 +29,9 @@ const usersNamesList = []; //used to Authenticat user email when signup
         document.getElementById(id).classList.remove("d-block");
         document.getElementById(id).classList.add("d-none");
     }
-}
 
-{//signup page
+
+//signup page
     function addNewUser() {
         if (JSON.parse(localStorage.getItem("usersM"))) {
             for (let i = 0; i < users.length; i++) {
@@ -86,10 +88,10 @@ const usersNamesList = []; //used to Authenticat user email when signup
         hideElmentById("logInPasswordInvalid")
     })
 
-}
 
 
-{//--------------login page------------//
+
+//--------------login page------------//
 
     function UserAuthentication() {
         for (let i = 0; i < users.length; i++) {
@@ -120,11 +122,10 @@ const usersNamesList = []; //used to Authenticat user email when signup
         showElmentById("signUpPage")
         hideElmentById("logInPage")
     })
-}
 
-{//welcom page
+
+//welcom page
     btnLogOut.addEventListener("click", function () {
         showElmentById("logInPage");
         hideElmentById("WelcomPage")
     })
-}
