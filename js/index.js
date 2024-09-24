@@ -1,22 +1,22 @@
-var inputNameSignUp = document.querySelector("#nameSignUp");
-var inputEmailSignUp = document.querySelector("#emailSignUp");
-var inputPasswordSignUp = document.querySelector("#passwordSignUp");
+const inputNameSignUp = document.querySelector("#nameSignUp");
+const inputEmailSignUp = document.querySelector("#emailSignUp");
+const inputPasswordSignUp = document.querySelector("#passwordSignUp");
 
-var inputEmailLogIn = document.querySelector("#emailLogIn");
-var inputPasswordLognIn = document.querySelector("#passwordLognIn");
+const inputEmailLogIn = document.querySelector("#emailLogIn");
+const inputPasswordLognIn = document.querySelector("#passwordLognIn");
 
-var signUpPage = document.getElementById("signUpPage");
-var logInPage = document.getElementById("logInPage");
-var WelcomPage = document.getElementById("WelcomPage");
-var welcomeUserName = document.getElementById("welcomeUserName");
+const signUpPage = document.getElementById("signUpPage");
+const logInPage = document.getElementById("logInPage");
+const WelcomPage = document.getElementById("WelcomPage");
+const welcomeUserName = document.getElementById("welcomeUserName");
 
-var btnSignUp = document.querySelector("#btnSignUp");
-var btnLogIn = document.querySelector("#btnLogIn");
-var btnLogOut = document.querySelector("#btnLogOut");
+const btnSignUp = document.querySelector("#btnSignUp");
+const btnLogIn = document.querySelector("#btnLogIn");
+const btnLogOut = document.querySelector("#btnLogOut");
 
 
-var users = JSON.parse(localStorage.getItem("usersM")) || []
-var usersNamesList = []; //used to Authenticat user email when signup
+const users = JSON.parse(localStorage.getItem("usersM")) || []
+const usersNamesList = []; //used to Authenticat user email when signup
 
 {//functions to hide and show elments in html by changein display
     function showElmentById(id) {
@@ -73,8 +73,8 @@ var usersNamesList = []; //used to Authenticat user email when signup
     }// end function addNewUser
 
     function clearInputs() {
-        var inputs = document.querySelectorAll("input");
-        var inputsArr = Array.from(inputs);
+        const inputs = document.querySelectorAll("input");
+        const inputsArr = Array.from(inputs);
         for (let i = 0; i < inputsArr.length; i++) {
             inputs[i].value = null
         }
