@@ -32,48 +32,23 @@ const usersNamesList = []; //used to Authenticat user email when signup
 
 
 //signup page
-    function addNewUser() {
-        if (JSON.parse(localStorage.getItem("usersM"))) {
-            for (let i = 0; i < users.length; i++) {
-                usersNamesList.push(users[i].email)
-            }
-        }
 
+
+    function addNewUser() {
+        createUsersNamesList();
         if (usersNamesList.length != 0) {
             if (usersNamesList.includes(inputEmailSignUp.value)) {
                 showElmentById("signUpEmailInvalid");
             }
             else {
-                users.push({
-                    userName: inputNameSignUp.value,
-                    email: inputEmailSignUp.value,
-                    password: inputPasswordSignUp.value
-                })
-                localStorage.setItem("usersM", JSON.stringify(users));
-                hideElmentById("signUpEmailInvalid");
-                {// swtching to login page
-                    showElmentById("logInPage")
-                    hideElmentById("signUpPage");
-                }
-                clearInputs();
-            }
+                pushNewUserToUsersArr();
+            }//end inner if
 
         }else{
-            users.push({
-                userName: inputNameSignUp.value,
-                email: inputEmailSignUp.value,
-                password: inputPasswordSignUp.value
-            })
-            localStorage.setItem("usersM", JSON.stringify(users));
-            hideElmentById("signUpEmailInvalid");
-                {// swtching to login page
-                    showElmentById("logInPage")
-                    hideElmentById("signUpPage");
-                }
-            clearInputs();
-        }
+            pushNewUserToUsersArr();
+        }//end 1st if
     }// end function addNewUser
-
+    
     function clearInputs() {
         const inputs = document.querySelectorAll("input");
         const inputsArr = Array.from(inputs);
@@ -81,19 +56,40 @@ const usersNamesList = []; //used to Authenticat user email when signup
             inputs[i].value = null
         }
     }//end function clearInputs
+    
+    function createUsersNamesList(){
+        if (JSON.parse(localStorage.getItem("usersM"))) {
+            for (let i = 0; i < users.length; i++) {
+                usersNamesList.push(users[i].email)
+            }
+        }
+    }//end createUsersNamesList
+
+    function pushNewUserToUsersArr(){
+        users.push({
+            userName: inputNameSignUp.value,
+            email: inputEmailSignUp.value,
+            password: inputPasswordSignUp.value
+        })
+        localStorage.setItem("usersM", JSON.stringify(users));
+        hideElmentById("signUpEmailInvalid");
+        {// swtching to login page
+            showElmentById("logInPage")
+            hideElmentById("signUpPage");
+        }
+        clearInputs();
+        hideElmentById("logInNameInvalid");
+        hideElmentById("logInPasswordInvalid");
+    }//end pushNewUserToUsersArr
 
     btnSignUp.addEventListener("click", function () {
         addNewUser();
-        hideElmentById("logInNameInvalid")
-        hideElmentById("logInPasswordInvalid")
     })
-
-
 
 
 //--------------login page------------//
 
-    function UserAuthentication() {
+    function userAuthentication() {
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == inputEmailLogIn.value && users[i].password === inputPasswordLognIn.value) {
                 showElmentById("WelcomPage");
@@ -105,17 +101,17 @@ const usersNamesList = []; //used to Authenticat user email when signup
                 return true
             }
         }
-    }// end function UserAuthentication
+    }// end function userAuthentication
 
-    function invalidUser(AuthenticationFunction) {
-        if (!AuthenticationFunction) {
+    function invalidUser(authenticationFunction) {
+        if (!authenticationFunction) {
             showElmentById("logInNameInvalid");
             showElmentById("logInPasswordInvalid");
         }
     }// end function invalidUser
 
     btnLogIn.addEventListener("click", function () {
-        invalidUser(UserAuthentication())
+        invalidUser(userAuthentication())
     })
 
     btnSwtchToSignUpPage.addEventListener("click", function () {
