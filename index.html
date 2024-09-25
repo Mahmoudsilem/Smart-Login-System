@@ -14,18 +14,16 @@
 
 <body>
     <main>
-
         <section id="signUpPage" class="login-form d-none">
             <div class="container">
                 <div class="inner form-box">
                     <h1>Smart Login System</h1>
                     <input id="nameSignUp" class="form-control" type="text" placeholder="Enter your Name">
-                    <p class="text-danger text-center d-none">Please enter a valid name.</p>
+                    <p id="signUpNameInvalid" class="text-danger text-center d-none">Please enter a valid name.</p>
                     <input id="emailSignUp" class="form-control" type="email" placeholder="Enter your Email">
-                    <p id="signUpEmailInvalid" class="text-danger text-center d-none">Email already exists. Try another.
-                    </p>
+                    <p id="signUpEmailInvalid" class="text-danger text-center d-none">Invalid email or email already exists. Try another.</p>
                     <input id="passwordSignUp" class="form-control" type="password" placeholder="Enter Password">
-                    <p class="text-danger text-center d-none">Password must be at least 6 characters long.</p>
+                    <p id="signUpPasswordInvalid" class="text-danger text-center d-none">Password must contain at least one upper case English letter and one number.</p>
                     <button id="btnSignUp" class="btn btn-outline-primary w-100">Sign Up</button>
                 </div>
             </div>
