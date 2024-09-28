@@ -29,16 +29,27 @@ function hideElmentById(id) {
     document.getElementById(id).classList.remove("d-block");
     document.getElementById(id).classList.add("d-none");
 }
-
+function showElmentByIdTraversing(previousSibling) {
+    previousSibling.nextElementSibling.classList.add("d-block");
+    previousSibling.nextElementSibling.classList.remove("d-none");
+}
+function hideElmentByTraversing(previousSibling) {
+    previousSibling.nextElementSibling.classList.remove("d-block");
+    previousSibling.nextElementSibling.classList.add("d-none");
+}
 
 //signup page
 function validatUserNameSignUp() {
     const regexUserName = /^[a-zA-Z]{3,}$/
     if (regexUserName.test(inputNameSignUp.value)) {
-        hideElmentById("signUpNameInvalid")
+        hideElmentByTraversing(inputNameSignUp);
+        // hideElmentById("signUpNameInvalid")
         return true
     } else {
-        showElmentById("signUpNameInvalid")
+        showElmentByIdTraversing(inputNameSignUp)
+        // inputNameSignUp.nextElementSibling.classList.add("d-block")
+        // inputNameSignUp.nextElementSibling.classList.remove("d-none")
+        // showElmentById("signUpNameInvalid")
         return false
     }
 }//end validatUserNameSignUp
@@ -46,10 +57,12 @@ function validatEmailSignUp(){
     createUsersEmailsList();
     const regexEmail = /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/;
     if(regexEmail.test(inputEmailSignUp.value) && !usersEmailsList.includes(inputEmailSignUp.value)){
-        hideElmentById("signUpEmailInvalid");
+        hideElmentByTraversing(inputEmailSignUp)
+        // hideElmentById("signUpEmailInvalid");
         return true;
     }else{
-        showElmentById("signUpEmailInvalid");
+        showElmentByIdTraversing(inputEmailSignUp)
+        // showElmentById("signUpEmailInvalid");
         return false;
     }
 }// end validatEmailSignUp
@@ -57,10 +70,13 @@ function validatEmailSignUp(){
 function validatPasswordSignUp(){
     const regexPassword = /[A-Z]\d/
     if(regexPassword.test(inputPasswordSignUp.value)){
-        hideElmentById("signUpPasswordInvalid");
+        hideElmentByTraversing(inputPasswordSignUp);
+
+        // hideElmentById("signUpPasswordInvalid");
         return true;
     }else{
-        showElmentById("signUpPasswordInvalid");
+        showElmentByIdTraversing(inputPasswordSignUp);
+        // showElmentById("signUpPasswordInvalid");
         return false;
     }
 }// end validatPasswordSignUp
